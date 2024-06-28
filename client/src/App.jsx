@@ -7,7 +7,7 @@ import Tasks from"./pages/Tasks";
 import Users from"./pages/Users";
 import Trash from "./pages/Trash";
 import TaskDetails from "./pages/TaskDetails";
-import { Sidebar } from "./components/Sidebar";
+import Sidebar from "./components/Sidebar";
 
 
 
@@ -24,7 +24,8 @@ function Layout (){
 
       {/* <MobileSidebar/> */}
       <div className="flex-1 overflow-y-auto">
-        {/* <Navbar/> */}
+        <Navbar />
+
         <div className="p-4 2xl:p-10">
           <Outlet/>
         </div>

@@ -7,7 +7,7 @@ import {
     MdTaskAlt,
 } from "react-icons/md";
 import { FaTasks, FaTrashAlt, FaUsers } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import { setOpenSidebar } from '../redux/slices/authSlice';
 
@@ -63,11 +63,11 @@ const Sidebar = () => {
         dispatch(setOpenSidebar(false))
     }
 
-    const NavLink = ({el}) => {
+    const NavLink = ({ el }) => {
         return (
-            <Link to={el.link} onClick={closeSidebar} className={clsx("w-full lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 text-base hover:bg-[#2564ed2d]", path === el.link.split('/')[0] ? "bg-orange-500 text-white" : "")}>
+            <Link to={el.link} onClick={closeSidebar} className={clsx("w-full lg:w-3/4 flex gap-2 px-3 py-2 rounded-full items-center text-gray-800 text-base hover:bg-[#2564ed2d]", path === el.link.split('/')[0] ? "bg-orange-500 text-neutral-100" : "")}>
                 {el.icon}
-                <span className='hover:text-[#2564ed]'>{el.label}</span>
+                <span className='hover:text-[#FFA500]'>{el.label}</span>
             </Link>
         )
     }
@@ -88,6 +88,14 @@ const Sidebar = () => {
                     <NavLink el={link} key={link.label} />
                 ))
             }
+        </div>
+
+
+        <div className=''>
+            <button className='w-full flex gap-2 p-2 items-center text-1g text-gray-800'>
+                <MdSettings />
+                <span>Settings</span>
+            </button>
         </div>
     </div>
   )

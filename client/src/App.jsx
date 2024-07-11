@@ -66,7 +66,7 @@ const MobileSidebar = () => {
           <div ref={(node) => (mobileMenuRef.current = node)} 
           className={clsx("md:hidden w-full h-full bg-black/40 transition-all duration-700 transform ", 
           isSidebarOpen ? "translate-x-0" : "translate-x-full")} onClick={()=> closeSidebar()}>
-            <div className="bg-white w-2/4 h-full">
+            <div className="bg-white w-3/4 h-full">
               <div className="w-full flex justify-end px-5 mt-5">
                 <button
                   onClick={() => closeSidebar()}

@@ -10,8 +10,11 @@ import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
 import clsx from "clsx";
-import Chart from "../components/Chart";
+import { Chart } from "../components/Chart";
 import { summary } from '../assets/data';
+import { BGS, PRIORITYSTYLES, TASK_TYPE, getInitials } from '../utils';
+import UserInfo from '../components/UserInfo';
+import { getInitials } from '../utils';
 
 const TaskTable = ({tasks}) => {
   const ICONS = {
@@ -36,7 +39,31 @@ const TaskTable = ({tasks}) => {
       <td className='py-2'>
         <div className='flex items-center gap-2'>
           <div className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])} />
+          <p className='text-base text-black'>{task.title}</p>
         </div>
+      </td>
+
+      <td className='py-2'>
+        <div className='flex gap-1 items-center'>
+          <span className={clsx("text-lg", PRIORITYSTYLES[task.priority])}>{ICONS[task.priority]}</span>
+          <span className='capitalize'>{task.priority}</span>
+        </div>
+      </td>
+      <td className='py-2'>
+        <div className='flex'>
+          {task.team.map((m, index) => (
+            <div key={index} className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1", BGS[index % BGS.length])} >
+              <UserInfo user={m} />
+            </div>
+          ))}
+        </div>
+      </td>
+      <td className='py-2 hidden md:block'>
+        <span className='text-base text-gray-600'>
+          {
+            moment(task?.date).fromNow()
+          }
+        </span>
       </td>
     </tr>
   );
@@ -59,6 +86,42 @@ const TaskTable = ({tasks}) => {
   )
 } 
 
+const UserTable = ({users}) => {
+  const TableHeader = () => (
+    <thead className='border-b border-gray-300 dark:border-gray-600'>
+      <tr className='text-black dark:text-white text-left'>
+        <th className='py-2'>Full Name</th>
+        <th className='py-2'>Status</th>
+        <th className='py-2'>Created At</th>
+      </tr>
+    </thead>
+  );
+
+  const TableRow = ({user}) => (
+    <tr className='border-b border-gray-200 text-gray-600 hover:bg-gray-400/10'>
+      <td className='py-2'>
+        <div className='flex items-center gap-3'>
+          <div className='w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-violet-700'>
+            <span className='text-center'>{getInitials(user?.name)}</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  )
+
+  return (
+    <div className='w-full md:w-1/3 bg-white h-fit px-2 md:px-6 py-4 shadow-md rounded'>
+      <table className='w-full mb-5'>
+        <TableHeader />
+        <tbody>
+          {users?.map((user, index) => (
+            <TableRow key={index + user?._id} user={user} />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 const Dashboard = () => {
 
@@ -124,10 +187,12 @@ const Dashboard = () => {
 
       <div className='w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8'>
           {/* /left */}
-          <div className=''>
-            <TaskTable tasks={summary.last10Task} />
-          </div>
+
+          <TaskTable tasks={summary.last10Task} />
+
           {/* /right */}
+
+          <UserTable users={summary.users} /> 
       </div>
     </div>
   )

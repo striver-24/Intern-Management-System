@@ -10,11 +10,10 @@ import { FaNewspaper, FaUsers } from "react-icons/fa";
 import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
 import clsx from "clsx";
-import { Chart } from "../components/Chart";
+import Chart from "../components/Chart";
 import { summary } from '../assets/data';
 import { BGS, PRIORITYSTYLES, TASK_TYPE, getInitials } from '../utils';
 import UserInfo from '../components/UserInfo';
-import { getInitials } from '../utils';
 
 const TaskTable = ({ tasks }) => {
   const ICONS = {

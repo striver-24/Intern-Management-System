@@ -1,7 +1,7 @@
 import {Routes, Route, Navigate, Outlet, useLocation} from "react-router-dom";
 import { Toaster } from "sonner";
 import { useSelector, useDispatch } from "react-redux";
-import { setOpenSidebar } from '../redux/slices/authSlice';
+import { setOpenSidebar } from './redux/slices/authSlice';
 import Login from './pages/Login';
 import Dashboard from "./pages/dashboard";
 import Tasks from"./pages/Tasks";

@@ -22,9 +22,12 @@ const Tabs = ({tabs, setSelected, children}) => {
                     ))
                 }
             </Tab.List>
+            <Tab.Panel className='w-full mt-2'>
+                {children}
+            </Tab.Panel>
         </Tab.Group>
     </div>
   )
 }
 
-export default Tabs
+export default Tabs;

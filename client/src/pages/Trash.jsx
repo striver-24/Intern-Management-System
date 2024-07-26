@@ -10,9 +10,9 @@ import {
 import { tasks } from "../assets/data";
 import Title from "../components/Title";
 import Button from "../components/Button";
-import { PRIOTITYSTYELS, TASK_TYPE } from "../utils";
+import { PRIORITYSTYLES, TASK_TYPE } from "../utils";
 import AddUser from "../components/AddUser";
-import ConfirmatioDialog from "../components/Dialogs";
+import ConfirmatioDialog from "../components/Dialogs.jsx";
 
 const ICONS = {
   high: <MdKeyboardDoubleArrowUp />,
@@ -78,7 +78,7 @@ const Trash = () => {
 
       <td className='py-2 capitalize'>
         <div className={"flex gap-1 items-center"}>
-          <span className={clsx("text-lg", PRIOTITYSTYELS[item?.priority])}>
+          <span className={clsx("text-lg", PRIORITYSTYLES[item?.priority])}>
             {ICONS[item?.priority]}
           </span>
           <span className=''>{item?.priority}</span>

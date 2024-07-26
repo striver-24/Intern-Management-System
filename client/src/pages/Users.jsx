@@ -5,7 +5,7 @@ import { IoMdAdd } from "react-icons/io";
 import { summary } from "../assets/data";
 import { getInitials } from "../utils";
 import clsx from "clsx";
-import ConfirmatioDialog, { UserAction } from "../components/Dialogs";
+import ConfirmatioDialog, { UserAction } from "../components/Dialogs.jsx";
 import AddUser from "../components/AddUser";
 
 const Users = () => {

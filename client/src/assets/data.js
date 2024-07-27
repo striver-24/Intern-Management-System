@@ -14,7 +14,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",

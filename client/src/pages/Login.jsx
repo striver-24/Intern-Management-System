@@ -107,7 +107,6 @@ const Login = () => {
 
               </div>
             </form>
-            {error && <p className='text-red-500'>{error.message}</p>}
           </div>
         </div>
       </div>

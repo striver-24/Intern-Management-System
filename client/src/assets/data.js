@@ -20,18 +20,11 @@ export const summary = {
             email: "admin@gmail.com",
           },
           {
-            _id: "65c30b96e639681a13def0b5",
-            name: "Jane Smith",
-            title: "Product Manager",
-            role: "Manager",
-            email: "jane.smith@example.com",
-          },
-          {
-            _id: "65c317360fd860f958baa08e",
-            name: "Alex Johnson",
-            title: "UX Designer",
-            role: "Designer",
-            email: "alex.johnson@example.com",
+            "_id": "66a3ee99f0a90894298b3391",
+            "name": "User 1",
+            "title": "Data Analyst",
+            "role": "Data Analyst",
+            "email": "user1@gmail.com",
           },
         ],
         isTrashed: false,
@@ -121,7 +114,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -261,7 +254,7 @@ export const summary = {
           },
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -306,7 +299,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -393,7 +386,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -480,7 +473,7 @@ export const summary = {
         team: [
           {
             _id: "65c202d4aa62f32ffd1303cc",
-            name: "Codewave Asante",
+            name: "Deivyansh Singh",
             title: "Administrator",
             role: "Admin",
             email: "admin@gmail.com",
@@ -523,44 +516,43 @@ export const summary = {
     ],
     users: [
       {
-        _id: "65c5f27fb5204a81bde86833",
-        name: "New User",
-        title: "Designer",
-        role: "Developer",
-        isActive: true,
-        createdAt: "2024-02-09T09:38:07.765Z",
+        "_id": "66a3e87d924408e24fa4bf87",
+        "name": "Deivyansh Singh",
+        "title": "Administrator",
+        "role": "Admin",
+        "email": "admin@gmail.com",
+        "isAdmin": true,
+        "tasks": [],
+        "isActive": true,
+        "createdAt": "2024-07-26T18:18:37.824Z",
+        "updatedAt": "2024-07-26T18:18:37.824Z",
+        "__v": 0
       },
       {
-        _id: "65c3176a0fd860f958baa099",
-        name: "Emily Wilson",
-        title: "Data Analyst",
-        role: "Analyst",
-        isActive: true,
-        createdAt: "2024-02-07T05:38:50.816Z",
+        "_id": "66a3ee99f0a90894298b3391",
+        "name": "User 1",
+        "title": "Data Analyst",
+        "role": "Data Analyst",
+        "email": "user1@gmail.com",
+        "isAdmin": false,
+        "tasks": [],
+        "isActive": true,
+        "createdAt": "2024-07-26T18:44:41.977Z",
+        "updatedAt": "2024-07-26T18:44:41.977Z",
+        "__v": 0
       },
       {
-        _id: "65c317360fd860f958baa08e",
-        name: "Alex Johnson",
-        title: "UX Designer",
-        role: "Designer",
-        isActive: true,
-        createdAt: "2024-02-07T05:37:58.862Z",
-      },
-      {
-        _id: "65c30b96e639681a13def0b5",
-        name: "Jane Smith",
-        title: "Product Manager",
-        role: "Manager",
-        isActive: true,
-        createdAt: "2024-02-07T04:48:22.519Z",
-      },
-      {
-        _id: "65c202d4aa62f32ffd1303cc",
-        name: "Codewave Asante",
-        title: "Administrator",
-        role: "Admin",
-        createdAt: "2024-02-06T09:58:44.794Z",
-        isActive: true,
+        "_id": "66a46db4f0a90894298b339b",
+        "name": "User 2",
+        "title": "Business Analyst",
+        "role": "Business Analyst",
+        "email": "user2@gmail.com",
+        "isAdmin": false,
+        "tasks": [],
+        "isActive": true,
+        "createdAt": "2024-07-27T03:47:00.678Z",
+        "updatedAt": "2024-07-27T03:47:00.678Z",
+        "__v": 0
       },
     ],
     tasks: {
@@ -603,21 +595,17 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
+          role: "Admin",
           email: "admin@gmail.com",
         },
         {
-          _id: "65c30b96e639681a13def0b5",
-          name: "Jane Smith",
-          title: "Product Manager",
-          email: "jane.smith@example.com",
-        },
-        {
-          _id: "65c317360fd860f958baa08e",
-          name: "Alex Johnson",
-          title: "UX Designer",
-          email: "alex.johnson@example.com",
+          "_id": "66a3ee99f0a90894298b3391",
+          "name": "User 1",
+          "title": "Data Analyst",
+          "role": "Data Analyst",
+          "email": "user1@gmail.com",
         },
       ],
       isTrashed: false,
@@ -705,7 +693,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -773,7 +761,7 @@ export const summary = {
     },
     {
       _id: "65c45fb6af6ec0118be94052",
-      title: "Task Manager Youtube Video",
+      title: "Intern Task Manager",
       date: "2024-02-11T00:00:00.000Z",
       priority: "medium",
       stage: "completed",
@@ -784,15 +772,15 @@ export const summary = {
       team: [
         {
           _id: "65c317360fd860f958baa08e",
-          name: "Alex Johnson",
+          name: "Intern 1",
           title: "UX Designer",
-          email: "alex.johnson@example.com",
+          email: "intern1@example.com",
         },
         {
           _id: "65c3176a0fd860f958baa099",
-          name: "Emily Wilson",
+          name: "Intern 2",
           title: "Data Analyst",
-          email: "emily.wilson@example.com",
+          email: "intern2@example.com",
         },
       ],
       isTrashed: false,
@@ -800,41 +788,41 @@ export const summary = {
         {
           type: "started",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          date: "2024-07-08T18:13:14.717Z",
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Deivyansh Singh" },
           _id: "65c51b998064dfd208b3f9",
         },
         {
           type: "commented",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          date: "2024-07-08T18:13:14.717Z",
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Deivyansh Singh" },
           _id: "65c51b98064df97d208b3f9",
         },
         {
           type: "completed",
           activity: "Project completed!!",
-          date: "2024-02-08T18:13:14.717Z",
-          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Codewave" },
+          date: "2024-07-08T18:13:14.717Z",
+          by: { _id: "65c202d4aa62f32ffd1303cc", name: "Deivyansh Singh" },
           _id: "65c51b998064df97d208b3f9",
         },
       ],
       subTasks: [
         {
           title: "Blog App Admin Dashboard",
-          date: "2024-02-08T00:00:00.000Z",
+          date: "2024-07-08T00:00:00.000Z",
           tag: "Website App",
           _id: "65c3535476ed5c48f9440973",
         },
       ],
-      createdAt: "2024-02-08T04:59:34.826Z",
-      updatedAt: "2024-02-09T06:51:15.005Z",
+      createdAt: "2024-06-08T04:59:34.826Z",
+      updatedAt: "2024-07-09T06:51:15.005Z",
       __v: 3,
     },
     {
       _id: "65c4586f0548279012f8c256",
       title: "Bug Fixing",
-      date: "2024-02-07T00:00:00.000Z",
+      date: "2024-06-07T00:00:00.000Z",
       priority: "high",
       stage: "todo",
       assets: [
@@ -853,7 +841,7 @@ export const summary = {
         },
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -896,7 +884,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -978,7 +966,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1060,7 +1048,7 @@ export const summary = {
       team: [
         {
           _id: "65c202d4aa62f32ffd1303cc",
-          name: "Codewave Asante",
+          name: "Deivyansh Singh",
           title: "Administrator",
           email: "admin@gmail.com",
         },
@@ -1101,7 +1089,7 @@ export const summary = {
   
   export const user = {
     _id: "662f32ffd1303cc",
-    name: "Codewave",
+    name: "Deivyansh",
     title: "Administrator",
     role: "Admin",
     email: "admin@mts.com",
@@ -1132,7 +1120,7 @@ export const summary = {
     {
       _id: "2",
       type: "assigned",
-      activity: "task to Codewave Asante",
+      activity: "task to Deivyansh Singh",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },
@@ -1148,7 +1136,7 @@ export const summary = {
     {
       _id: "5",
       type: "bug",
-      activity: "bug to Codewave Asante",
+      activity: "bug to Deivyansh Singh",
       date: new Date("2023-01-15").toISOString(),
       by: "Akwasi Asante",
     },

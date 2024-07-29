@@ -8,8 +8,9 @@ import {
 } from "react-icons/md";
 import { FaTasks, FaTrashAlt, FaUsers } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { setOpenSidebar } from '../redux/slices/authSlice';
+import clsx from 'clsx';
 
 const linkData = [
     {

@@ -133,6 +133,7 @@ const UserTable = ({ users }) => {
 }
 
 const Dashboard = () => {
+  const totals = summary.tasks;
 
   const stats = [
     {

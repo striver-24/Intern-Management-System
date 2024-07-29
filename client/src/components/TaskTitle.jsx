@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import clsx from 'clsx';
+import { IoMdAdd } from 'react-icons/io';
 
 const TaskTitle = ({label, className}) => {
   return (

@@ -8,7 +8,7 @@ import clsx from 'clsx';
 import { BiMessageAltDetail } from 'react-icons/bi';
 import { FaList } from 'react-icons/fa';
 import { BGS } from '../utils';
-import UserInfo from './User Info';
+import UserInfo from './UserInfo';
 import { IoMdAdd } from 'react-icons/io';
 
 const ICONS = {

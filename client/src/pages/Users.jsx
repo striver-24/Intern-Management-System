@@ -5,8 +5,8 @@ import { IoMdAdd } from "react-icons/io";
 import { summary } from "../assets/data"; // Ideally, this should be fetched from an API
 import { getInitials } from "../utils";
 import clsx from "clsx";
-import ConfirmatioDialog from "../components/Dialogs.jsx";
-import AddUser  from "../components/AddUser ";
+import ConfirmatioDialog from "../components/Dialogs";
+import AddUser  from "../components/AddUser";
 import Loading from "../components/Loader";
 
 const Users = () => {

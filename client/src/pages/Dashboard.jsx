@@ -54,7 +54,7 @@ const TaskTable = ({ tasks }) => {
           {task.team.length > 0 ? (
             task.team.map((m, index) => (
               <div key={index} className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1", BGS[index % BGS.length])} >
-                <User Info user={m} />
+                <UserInfo user={m} />
               </div>
             ))
           ) : (
@@ -207,9 +207,9 @@ const Dashboard = () => {
         <Chart />
       </div>
 
-      <div className='flex flex-col w-full gap-4 py-8  md:flex-row 2xl:gap-10'>
+      <div className='flex flex-col w-full gap-4 py-8 md:flex-row 2xl:gap-10'>
         <TaskTable tasks={summary.last10Task} />
-        <User Table users={summary.users} />
+        <UserTable users={summary.users} />
       </div>
     </div>
   );

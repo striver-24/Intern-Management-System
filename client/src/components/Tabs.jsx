@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Tab } from "@headlessui/react";
 
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -25,7 +26,7 @@ const Tabs = ({ tabs, setSelected, children, defaultSelectedIndex = 0 }) => {
                 )
               }
               role="tab"
-              aria-selected={selected}
+              aria-selected={setSelected}
               aria-controls={`panel-${index}`}
               id={`tab-${index}`}
             >

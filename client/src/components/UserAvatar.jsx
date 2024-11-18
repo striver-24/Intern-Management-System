@@ -5,6 +5,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getInitials } from '../utils';
+import { clsx } from 'clsx';
 
 const UserAvatar = () => {
     const [open, setOpen] = useState(false);

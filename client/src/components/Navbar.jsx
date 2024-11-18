@@ -10,31 +10,35 @@ const Navbar = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className='flex justify-between items-center bg-white px-4 py-3 2xl:py-4 sticky z-10 top-0'>
+        <nav className='sticky top-0 z-10 flex items-center justify-between px-4 py-3 bg-white shadow-md 2xl:py-4'>
             <div className='flex gap-4'>
-                <button onClick={() => dispatch(setOpenSidebar(true))} className='text- 2xl text-gray-500 block md:hidden'>
+                <button 
+                    onClick={() => dispatch(setOpenSidebar(true))} 
+                    className='block text-2xl text-gray-500 md:hidden'
+                    aria-label="Open sidebar"
+                >
                     ☰
                 </button>
 
-                <div className='w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6]'>
-                    <MdOutlineSearch className='text-gray-500 text-x1' />
+                <div className='w-64 2xl:w-[400px] flex items-center py-2 px-3 gap-2 rounded-full bg-[#f3f4f6] shadow-sm'>
+                    <MdOutlineSearch className='text-xl text-gray-500' />
 
-                    <input type='text' 
-                     placeholder='Search...'
-                     className='flex-1 outline-none bg-transparent placeholder:text-gray-500 text-gray-800'
+                    <input 
+                        type='text' 
+                        placeholder='Search...'
+                        className='flex-1 text-gray-800 bg-transparent outline-none placeholder:text-gray-500'
+                        aria-label="Search"
                     />
                 </div>
-
             </div>
 
-            <div className='flex gap-2 items-center'>
+            <div className='flex items-center gap-2'>
                 <NotificationPanel />
 
-                <UserAvatar />
+                <User Avatar user={user} />
             </div>
-
-        </div>
-    )
+        </nav>
+    );
 }
 
-export default Navbar
+export default Navbar;

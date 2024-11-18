@@ -24,71 +24,77 @@ const TaskTable = ({ tasks }) => {
 
   const TableHeader = () => (
     <thead className='border-b border-gray-300'>
-      <tr className='text-black text-left'>
+      <tr className='text-left text-black'>
         <th className='py-2'>Task Title</th>
         <th className='py-2'>Priority</th>
         <th className='py-2'>Team</th>
-        <th className='py-2 hidden md:block'>Created At</th>
+        <th className='hidden py-2 md:block'>Created At</th>
       </tr>
     </thead>
   );
 
   const TableRow = ({ task }) => (
-    <tr className='border-b border-gray-300 text-gray-600 hover:bg-gray-300/10'>
+    <tr className='text-gray-600 border-b border-gray-300 hover:bg-gray-300/10'>
       <td className='py-2'>
         <div className='flex items-center gap-2'>
           <div className={clsx("w-4 h-4 rounded-full", TASK_TYPE[task.stage])} />
-          <p className='text-base text-black'>{task.title}</p>
+          <p className='text-base text-black'>{task.title || 'No Title'}</p>
         </div>
       </td>
 
       <td className='py-2'>
-        <div className='flex gap-1 items-center'>
+        <div className='flex items-center gap-1'>
           <span className={clsx("text-lg", PRIORITYSTYLES[task.priority])}>{ICONS[task.priority]}</span>
-          <span className='capitalize'>{task.priority}</span>
+          <span className='capitalize'>{task.priority || 'N/A'}</span>
         </div>
       </td>
+      
       <td className='py-2'>
         <div className='flex'>
-          {task.team.map((m, index) => (
-            <div key={index} className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1", BGS[index % BGS.length])} >
-              <UserInfo user={m} />
-            </div>
-          ))}
+          {task.team.length > 0 ? (
+            task.team.map((m, index) => (
+              <div key={index} className={clsx("w-7 h-7 rounded-full text-white flex items-center justify-center text-sm -mr-1", BGS[index % BGS.length])} >
+                <User Info user={m} />
+              </div>
+            ))
+          ) : (
+            <span className='text-gray-500'>No Team Members</span>
+          )}
         </div>
       </td>
-      <td className='py-2 hidden md:block'>
+      
+      <td className='hidden py-2 md:block'>
         <span className='text-base text-gray-600'>
-          {
-            moment(task?.date).fromNow()
-          }
+          {task.date ? moment(task.date).fromNow() : 'Date not available'}
         </span>
       </td>
     </tr>
   );
 
   return (
-    <>
-      <div className='w-full md:w-2/3 bg-white px-2 md:px-4 pt-4 pb-4 shadow-md rounded'>
-        <table className='w-full '>
-          <TableHeader />
-          <tbody>
-            {
-              tasks?.map((task, id) => (
-                <TableRow key={id} task={task} />
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </>
-  )
-} 
+    <div className='w-full px-2 pt-4 pb-4 bg-white rounded shadow-md md:w-2/3 md:px-4'>
+      <table className='w-full'>
+        <TableHeader />
+        <tbody>
+          {tasks && tasks.length > 0 ? (
+            tasks.map((task, id) => (
+              <TableRow key={id} task={task} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" className='py-4 text-center text-gray-500'>No tasks available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 const UserTable = ({ users }) => {
   const TableHeader = () => (
     <thead className='border-b border-gray-300'>
-      <tr className='text-black text-left'>
+      <tr className='text-left text-black'>
         <th className='py-2'>Full Name</th>
         <th className='py-2'>Status</th>
         <th className='py-2'>Created At</th>
@@ -97,15 +103,15 @@ const UserTable = ({ users }) => {
   );
 
   const TableRow = ({ user }) => (
-    <tr className='border-b border-gray-200 text-gray-600 hover:bg-gray-400/10'>
+    <tr className='text-gray-600 border-b border-gray-200 hover:bg-gray-400/10'>
       <td className='py-2'>
         <div className='flex items-center gap-3'>
-          <div className='w-9 h-9 rounded-full text-white flex items-center justify-center text-sm bg-violet-700'>
+          <div className='flex items-center justify-center text-sm text-white rounded-full w-9 h-9 bg-violet-700'>
             <span className='text-center'>{getInitials(user?.name)}</span>
           </div>
           <div>
-            <p>{user.name}</p>
-            <span className='text-xs text-black'>{user?.role}</span>
+            <p>{user.name || 'Unknown User'}</p>
+            <span className='text-xs text-black'>{user?.role || 'No Role'}</span>
           </div>
         </div>
       </td>
@@ -114,23 +120,29 @@ const UserTable = ({ users }) => {
           {user?.isActive ? "Active" : "Disabled"}
         </p>
       </td>
-      <td className='py-2 text-sm'>{moment(user?.createdAt).fromNow()}</td>
+      <td className='py-2 text-sm'>{user?.createdAt ? moment(user.createdAt).fromNow() : 'Date not available'}</td>
     </tr>
-  )
+  );
 
   return (
-    <div className='w-full md:w-1/3 bg-white h-fit px-2 md:px-6 py-4 shadow-md rounded'>
+    <div className='w-full px-2 py-4 bg-white rounded shadow-md md:w-1/3 h-fit md:px-6'>
       <table className='w-full mb-5'>
         <TableHeader />
         <tbody>
-          {users?.map((user, index) => (
-            <TableRow key={index + user?._id} user={user} />
-          ))}
+          {users && users.length > 0 ? (
+            users.map((user, index) => (
+              <TableRow key={index + user?._id} user={user} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3" className='py-4 text-center text-gray-500'>No users available</td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 const Dashboard = () => {
   const totals = summary.tasks;
@@ -152,7 +164,7 @@ const Dashboard = () => {
     },
     {
       _id: "3",
-      label: "TASK IN PROGRESS ",
+      label: "TASK IN PROGRESS",
       total: totals["in progress"] || 0,
       icon: <LuClipboardEdit />,
       bg: "bg-[#f59e0b]",
@@ -160,16 +172,16 @@ const Dashboard = () => {
     {
       _id: "4",
       label: "TODOS",
-      total: totals["todo"],
+      total: totals["todo"] || 0,
       icon: <FaArrowsToDot />,
-      bg: "bg-[#be185d]" || 0,
+      bg: "bg-[#be185d]",
     },
   ];
-  
+
   const Card = ({ label, count, bg, icon }) => {
     return (
-      <div className='w-full h-32 bg-white p-5 shadow-md rounded-md flex items-center justify-between'>
-        <div className='h-full flex flex-1 flex-col justify-between'>
+      <div className='flex items-center justify-between w-full h-32 p-5 bg-white rounded-md shadow-md'>
+        <div className='flex flex-col justify-between flex-1 h-full'>
           <p className='text-base text-gray-600'>{label}</p>
           <span className='text-2xl font-semibold'>{count}</span>
           <span className='text-sm text-gray-400'>{"110 last month"}</span>
@@ -179,33 +191,28 @@ const Dashboard = () => {
           {icon}
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div className='h-full p-4'>
-      <div className='grid grid-cols-1 md:grid-cols-4 gap-5'>
-        {stats.map(({icon, bg, label, total}, index) => (
+      <div className='grid grid-cols-1 gap-5 md:grid-cols-4'>
+        {stats.map(({ icon, bg, label, total }, index) => (
           <Card key={index} icon={icon} bg={bg} label={label} count={total} />
         ))}
       </div>
 
-      <div className='w-full bg-white my-16 p-4 rounded shadow-sm'>
-          <h4 className='text-x1 text-gray-600 font-semibold'>Chart By Priority</h4>
-          <Chart />
+      <div className='w-full p-4 my-16 bg-white rounded shadow-sm'>
+        <h4 className='text-xl font-semibold text-gray-600'>Chart By Priority</h4>
+        <Chart />
       </div>
 
-      <div className='w-full flex flex-col md:flex-row gap-4 2xl:gap-10 py-8'>
-          {/* /left */}
-
-          <TaskTable tasks={summary.last10Task} />
-
-          {/* /right */}
-
-          <UserTable users={summary.users} /> 
+      <div className='flex flex-col w-full gap-4 py-8  md:flex-row 2xl:gap-10'>
+        <TaskTable tasks={summary.last10Task} />
+        <User Table users={summary.users} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;

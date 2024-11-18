@@ -1,0 +1,56 @@
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f9f9f9; /* Light background */
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px; /* Space between dots */
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #3498db; /* Dot color */
+    animation: bounce 0.6s infinite alternate;
+}
+
+/* Animation for the bouncing effect */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Delay for each dot to create a staggered effect */
+.dot:nth-child(1) {
+    animation-delay: 0s;
+}
+.dot:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.dot:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.dot:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.dot:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loading-message {
+    margin-top: 20px; /* Space between dots and message */
+    font-size: 1.2em; /* Increase font size */
+    color: #555; /* Text color */
+}

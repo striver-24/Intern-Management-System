@@ -4,7 +4,40 @@ import { FaQuestion } from "react-icons/fa";
 import ModalWrapper from "./ModalWrapper";
 import Button from "./Button";
 
-export default function ConfirmatioDialog({
+const DialogContent = ({
+  title,
+  message,
+  confirmLabel,
+  cancelLabel,
+  onConfirm,
+  onCancel,
+  confirmButtonClass,
+}) => (
+  <div className='flex flex-col items-center justify-center w-full gap-4 py-4'>
+    <Dialog.Title as='h3'>
+      <p className={clsx("p-3 rounded-full", confirmButtonClass)}>
+        <FaQuestion size={60} />
+      </p>
+    </Dialog.Title>
+    <p className='text-center text-gray-500'>{message}</p>
+    <div className='gap-4 py-3 bg-gray-50 sm:flex sm:flex-row-reverse'>
+      <Button
+        type='button'
+        className={clsx("px-8 text-sm font-semibold text-white sm:w-auto", confirmButtonClass)}
+        onClick={onConfirm}
+        label={confirmLabel}
+      />
+      <Button
+        type='button'
+        className='px-8 text-sm font-semibold text-gray-900 bg-white border sm:w-auto'
+        onClick={onCancel}
+        label={cancelLabel}
+      />
+    </div>
+  </div>
+);
+
+export default function ConfirmationDialog({
   open,
   setOpen,
   msg,
@@ -19,50 +52,22 @@ export default function ConfirmatioDialog({
     setOpen(false);
   };
 
+  const confirmButtonClass = type === "restore" || type === "restoreAll"
+    ? "bg-yellow-600"
+    : "bg-red-600 hover:bg-red-500";
+
   return (
-    <>
-      <ModalWrapper open={open} setOpen={closeDialog}>
-        <div className='py-4 w-full flex flex-col gap-4 items-center justify-center'>
-          <Dialog.Title as='h3' className=''>
-            <p
-              className={clsx(
-                "p-3 rounded-full ",
-                type === "restore" || type === "restoreAll"
-                  ? "text-yellow-600 bg-yellow-100"
-                  : "text-red-600 bg-red-200"
-              )}
-            >
-              <FaQuestion size={60} />
-            </p>
-          </Dialog.Title>
-
-          <p className='text-center text-gray-500'>
-            {msg ?? "Are you sure you want to delete the selected record?"}
-          </p>
-
-          <div className='bg-gray-50 py-3 sm:flex sm:flex-row-reverse gap-4'>
-            <Button
-              type='button'
-              className={clsx(
-                " px-8 text-sm font-semibold text-white sm:w-auto",
-                type === "restore" || type === "restoreAll"
-                  ? "bg-yellow-600"
-                  : "bg-red-600 hover:bg-red-500"
-              )}
-              onClick={onClick}
-              label={type === "restore" ? "Restore" : "Delete"}
-            />
-
-            <Button
-              type='button'
-              className='bg-white px-8 text-sm font-semibold text-gray-900 sm:w-auto border'
-              onClick={() => closeDialog()}
-              label='Cancel'
-            />
-          </div>
-        </div>
-      </ModalWrapper>
-    </>
+    <ModalWrapper open={open} setOpen={closeDialog}>
+      <DialogContent
+        title="Confirmation"
+        message={msg ?? "Are you sure you want to delete the selected record?"}
+        confirmLabel={type === "restore" ? "Restore" : "Delete"}
+        cancelLabel="Cancel"
+        onConfirm={onClick}
+        onCancel={closeDialog}
+        confirmButtonClass={confirmButtonClass}
+      />
+    </ModalWrapper>
   );
 }
 
@@ -72,39 +77,16 @@ export function UserAction({ open, setOpen, onClick = () => {} }) {
   };
 
   return (
-    <>
-      <ModalWrapper open={open} setOpen={closeDialog}>
-        <div className='py-4 w-full flex flex-col gap-4 items-center justify-center'>
-          <Dialog.Title as='h3' className=''>
-            <p className={clsx("p-3 rounded-full ", "text-red-600 bg-red-200")}>
-              <FaQuestion size={60} />
-            </p>
-          </Dialog.Title>
-
-          <p className='text-center text-gray-500'>
-            {"Are you sure you want to activate or deactive this account?"}
-          </p>
-
-          <div className='bg-gray-50 py-3 sm:flex sm:flex-row-reverse gap-4'>
-            <Button
-              type='button'
-              className={clsx(
-                " px-8 text-sm font-semibold text-white sm:w-auto",
-                "bg-red-600 hover:bg-red-500"
-              )}
-              onClick={onClick}
-              label={"Yes"}
-            />
-
-            <Button
-              type='button'
-              className='bg-white px-8 text-sm font-semibold text-gray-900 sm:w-auto border'
-              onClick={() => closeDialog()}
-              label='No'
-            />
-          </div>
-        </div>
-      </ModalWrapper>
-    </>
+    <ModalWrapper open={open} setOpen={closeDialog}>
+      <DialogContent
+        title="User  Action"
+        message="Are you sure you want to activate or deactivate this account?"
+        confirmLabel="Yes"
+        cancelLabel="No"
+        onConfirm={onClick}
+        onCancel={closeDialog}
+        confirmButtonClass="bg-red-600 hover:bg-red-500"
+      />
+    </ModalWrapper>
   );
 }
